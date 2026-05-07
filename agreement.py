@@ -7,6 +7,7 @@ import statistics as stat
 from pathlib import Path
 from collections import defaultdict
 
+# This file calculates inter-annotator agreement between all files
 # ---------------------------------------------------------------------------
 # Constants
 # ---------------------------------------------------------------------------
@@ -296,7 +297,9 @@ def compute_language_alphas(language_dir: Path, language: str) -> None:
 
 
 if __name__ == "__main__":
-    base_path = "/srv/nlprx-lab/share5/jyoung369/ai-framing/news-dataloader/adjudication"
+    # Input the base path to your data file here.
+    base_path = ""
+    # Switch between "english", "chinese", and "russian"
     language = "english"
     language_dir = Path(f"{base_path}/{language}_annotations")
 
