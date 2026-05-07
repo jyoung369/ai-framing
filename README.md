@@ -21,6 +21,7 @@ submission/
 │   └── identify/                    # 3 strategies × 3 languages
 │
 ├── scripts/                         # Inference and evaluation scripts
+│   ├── agreement.py                 # Human agreement calculation
 │   ├── run_frame_classification_inference.py
 │   ├── run_sentiment_classification_inference.py
 │   ├── run_identify_inference.py
