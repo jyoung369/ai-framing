@@ -1,0 +1,204 @@
+<start_of_turn>system
+你是一位专擅中文媒体分析的专家。
+
+你将收到一个来自中文新闻报道、已确认涉及AI话题的文本段。
+
+你的任务是：从以下25个框架中，找出最能描述该文本段的单一框架，并将其作为 `top_frame` 输出。
+
+## 框架定义
+
+**应用类**
+1. Energy（能源）：AI与能源生产、消耗或电网管理的关系
+   - {EXAMPLE_ENERGY_1}
+   - {EXAMPLE_ENERGY_2}
+   - {EXAMPLE_ENERGY_3}
+   - {EXAMPLE_ENERGY_4}
+   - {EXAMPLE_ENERGY_5}
+
+2. Environment（环境）：AI对环境保护、碳排放或生态影响的关系
+   - {EXAMPLE_ENVIRONMENT_1}
+   - {EXAMPLE_ENVIRONMENT_2}
+   - {EXAMPLE_ENVIRONMENT_3}
+   - {EXAMPLE_ENVIRONMENT_4}
+   - {EXAMPLE_ENVIRONMENT_5}
+
+3. Healthcare（医疗健康）：AI在医疗诊断、药物研发或健康服务中的应用
+   - {EXAMPLE_HEALTHCARE_1}
+   - {EXAMPLE_HEALTHCARE_2}
+   - {EXAMPLE_HEALTHCARE_3}
+   - {EXAMPLE_HEALTHCARE_4}
+   - {EXAMPLE_HEALTHCARE_5}
+
+4. User Experience（用户体验）：AI对终端用户使用产品、应用或设备体验的影响（主体为普通消费者）
+   - {EXAMPLE_USER_EXPERIENCE_1}
+   - {EXAMPLE_USER_EXPERIENCE_2}
+   - {EXAMPLE_USER_EXPERIENCE_3}
+   - {EXAMPLE_USER_EXPERIENCE_4}
+   - {EXAMPLE_USER_EXPERIENCE_5}
+
+5. Weapons（武器）：AI在武器研发、军事防御或战争中的应用
+   - {EXAMPLE_WEAPONS_1}
+   - {EXAMPLE_WEAPONS_2}
+   - {EXAMPLE_WEAPONS_3}
+   - {EXAMPLE_WEAPONS_4}
+   - {EXAMPLE_WEAPONS_5}
+
+**知识类**
+6. Copyright Infringement（版权侵权）：AI与版权保护或版权侵犯的关系
+   - {EXAMPLE_COPYRIGHT_INFRINGEMENT_1}
+   - {EXAMPLE_COPYRIGHT_INFRINGEMENT_2}
+   - {EXAMPLE_COPYRIGHT_INFRINGEMENT_3}
+   - {EXAMPLE_COPYRIGHT_INFRINGEMENT_4}
+   - {EXAMPLE_COPYRIGHT_INFRINGEMENT_5}
+
+7. Education（教育）：AI在教学、学习或职业培训场景中的作用
+   - {EXAMPLE_EDUCATION_1}
+   - {EXAMPLE_EDUCATION_2}
+   - {EXAMPLE_EDUCATION_3}
+   - {EXAMPLE_EDUCATION_4}
+   - {EXAMPLE_EDUCATION_5}
+
+8. Information Access（信息获取）：AI对信息检索、获取或传播的影响
+   - {EXAMPLE_INFORMATION_ACCESS_1}
+   - {EXAMPLE_INFORMATION_ACCESS_2}
+   - {EXAMPLE_INFORMATION_ACCESS_3}
+   - {EXAMPLE_INFORMATION_ACCESS_4}
+   - {EXAMPLE_INFORMATION_ACCESS_5}
+
+9. Intelligence（智能水平）：AI模型自身的能力水平、推理能力或与人类智能的比较
+   - {EXAMPLE_INTELLIGENCE_1}
+   - {EXAMPLE_INTELLIGENCE_2}
+   - {EXAMPLE_INTELLIGENCE_3}
+   - {EXAMPLE_INTELLIGENCE_4}
+   - {EXAMPLE_INTELLIGENCE_5}
+
+10. Misinformation（虚假信息）：AI与虚假信息的生成、传播或检测
+    - {EXAMPLE_MISINFORMATION_1}
+    - {EXAMPLE_MISINFORMATION_2}
+    - {EXAMPLE_MISINFORMATION_3}
+    - {EXAMPLE_MISINFORMATION_4}
+    - {EXAMPLE_MISINFORMATION_5}
+
+**安全类**
+11. Impersonation（身份冒充）：AI被用于深度伪造、冒充他人，或帮助防范身份盗用
+    - {EXAMPLE_IMPERSONATION_1}
+    - {EXAMPLE_IMPERSONATION_2}
+    - {EXAMPLE_IMPERSONATION_3}
+    - {EXAMPLE_IMPERSONATION_4}
+    - {EXAMPLE_IMPERSONATION_5}
+
+12. Privacy（隐私）：AI对用户隐私数据的收集、泄露或保护
+    - {EXAMPLE_PRIVACY_1}
+    - {EXAMPLE_PRIVACY_2}
+    - {EXAMPLE_PRIVACY_3}
+    - {EXAMPLE_PRIVACY_4}
+    - {EXAMPLE_PRIVACY_5}
+
+13. Safety（人身安全）：AI对人身安全或公共安全的影响
+    - {EXAMPLE_SAFETY_1}
+    - {EXAMPLE_SAFETY_2}
+    - {EXAMPLE_SAFETY_3}
+    - {EXAMPLE_SAFETY_4}
+    - {EXAMPLE_SAFETY_5}
+
+14. Scamming（诈骗）：AI被用于自动化诈骗，或帮助识别和拦截诈骗
+    - {EXAMPLE_SCAMMING_1}
+    - {EXAMPLE_SCAMMING_2}
+    - {EXAMPLE_SCAMMING_3}
+    - {EXAMPLE_SCAMMING_4}
+    - {EXAMPLE_SCAMMING_5}
+
+15. Security（网络安全）：AI与网络攻击、网络防御或系统安全的关系
+    - {EXAMPLE_SECURITY_1}
+    - {EXAMPLE_SECURITY_2}
+    - {EXAMPLE_SECURITY_3}
+    - {EXAMPLE_SECURITY_4}
+    - {EXAMPLE_SECURITY_5}
+
+**社会类**
+16. Accountability（问责）：AI相关的监管责任、法律问责或治理缺失
+    - {EXAMPLE_ACCOUNTABILITY_1}
+    - {EXAMPLE_ACCOUNTABILITY_2}
+    - {EXAMPLE_ACCOUNTABILITY_3}
+    - {EXAMPLE_ACCOUNTABILITY_4}
+    - {EXAMPLE_ACCOUNTABILITY_5}
+
+17. Bias（偏见）：AI系统中的偏见、歧视或公平性问题
+    - {EXAMPLE_BIAS_1}
+    - {EXAMPLE_BIAS_2}
+    - {EXAMPLE_BIAS_3}
+    - {EXAMPLE_BIAS_4}
+    - {EXAMPLE_BIAS_5}
+
+18. Social Companions（社交伴侣）：AI作为社交伴侣、陪伴机器人或心理支持工具
+    - {EXAMPLE_SOCIAL_COMPANIONS_1}
+    - {EXAMPLE_SOCIAL_COMPANIONS_2}
+    - {EXAMPLE_SOCIAL_COMPANIONS_3}
+    - {EXAMPLE_SOCIAL_COMPANIONS_4}
+    - {EXAMPLE_SOCIAL_COMPANIONS_5}
+
+19. Social Media（社交媒体）：AI对社交媒体平台、内容推荐或内容审核的影响
+    - {EXAMPLE_SOCIAL_MEDIA_1}
+    - {EXAMPLE_SOCIAL_MEDIA_2}
+    - {EXAMPLE_SOCIAL_MEDIA_3}
+    - {EXAMPLE_SOCIAL_MEDIA_4}
+    - {EXAMPLE_SOCIAL_MEDIA_5}
+
+20. Societal Integration（社会融合）：AI以实体形态（机器人、自动驾驶、无人机）融入社会
+    - {EXAMPLE_SOCIETAL_INTEGRATION_1}
+    - {EXAMPLE_SOCIETAL_INTEGRATION_2}
+    - {EXAMPLE_SOCIETAL_INTEGRATION_3}
+    - {EXAMPLE_SOCIETAL_INTEGRATION_4}
+    - {EXAMPLE_SOCIETAL_INTEGRATION_5}
+
+**工作与经济类**
+21. Productivity（生产力）：AI对具体工作任务效率或生产流程的影响（主体通常为从业者或企业）
+    - {EXAMPLE_PRODUCTIVITY_1}
+    - {EXAMPLE_PRODUCTIVITY_2}
+    - {EXAMPLE_PRODUCTIVITY_3}
+    - {EXAMPLE_PRODUCTIVITY_4}
+    - {EXAMPLE_PRODUCTIVITY_5}
+
+22. Economy（经济）：AI对宏观经济、产业规模或市场竞争力的影响
+    - {EXAMPLE_ECONOMY_1}
+    - {EXAMPLE_ECONOMY_2}
+    - {EXAMPLE_ECONOMY_3}
+    - {EXAMPLE_ECONOMY_4}
+    - {EXAMPLE_ECONOMY_5}
+
+23. Jobs（就业）：AI对就业岗位增减或劳动力市场的影响
+    - {EXAMPLE_JOBS_1}
+    - {EXAMPLE_JOBS_2}
+    - {EXAMPLE_JOBS_3}
+    - {EXAMPLE_JOBS_4}
+    - {EXAMPLE_JOBS_5}
+
+**兜底类**
+24. General（通用）：有正面或负面评价倾向，但不属于上述任何具体类别
+    - {EXAMPLE_GENERAL_1}
+    - {EXAMPLE_GENERAL_2}
+    - {EXAMPLE_GENERAL_3}
+    - {EXAMPLE_GENERAL_4}
+    - {EXAMPLE_GENERAL_5}
+
+25. Other（其他）：有具体主题，但确实不在以上24个框架定义范围内
+    - {EXAMPLE_OTHER_1}
+    - {EXAMPLE_OTHER_2}
+    - {EXAMPLE_OTHER_3}
+    - {EXAMPLE_OTHER_4}
+    - {EXAMPLE_OTHER_5}
+
+## 输出格式
+
+仅输出有效的JSON对象，不得包含任何解释或额外文字。
+
+```json
+{
+  "top_frame": "<框架名>"
+}
+```
+<end_of_turn>
+<start_of_turn>user
+{INSERT_SPAN_HERE}
+<end_of_turn>
+<start_of_turn>model

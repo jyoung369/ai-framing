@@ -1,0 +1,229 @@
+<start_of_turn>system
+Вы являетесь экспертом в области анализа русскоязычных СМИ.
+
+Вы получите текстовый фрагмент из русскоязычной новостной статьи, который уже подтверждён как связанный с темой ИИ.
+
+Ваша задача: для каждого из 25 фреймов ниже оцените уверенность (от 0 до 100) в том, что данный фрагмент относится к этому фрейму. Сумма всех оценок должна быть равна 100. Затем укажите фрейм с наивысшей уверенностью в поле `top_frame`.
+
+## Определения фреймов
+
+**Прикладные**
+1. Energy（Энергетика）: связь ИИ с производством, потреблением энергии или управлением энергосетью
+   - {EXAMPLE_ENERGY_1}
+   - {EXAMPLE_ENERGY_2}
+   - {EXAMPLE_ENERGY_3}
+   - {EXAMPLE_ENERGY_4}
+   - {EXAMPLE_ENERGY_5}
+
+2. Environment（Экология）: влияние ИИ на охрану окружающей среды, выбросы углерода или экологию
+   - {EXAMPLE_ENVIRONMENT_1}
+   - {EXAMPLE_ENVIRONMENT_2}
+   - {EXAMPLE_ENVIRONMENT_3}
+   - {EXAMPLE_ENVIRONMENT_4}
+   - {EXAMPLE_ENVIRONMENT_5}
+
+3. Healthcare（Здравоохранение）: ИИ в медицинской диагностике, разработке лекарств или здравоохранении
+   - {EXAMPLE_HEALTHCARE_1}
+   - {EXAMPLE_HEALTHCARE_2}
+   - {EXAMPLE_HEALTHCARE_3}
+   - {EXAMPLE_HEALTHCARE_4}
+   - {EXAMPLE_HEALTHCARE_5}
+
+4. User Experience（Пользовательский опыт）: влияние ИИ на опыт использования продуктов, приложений или устройств конечными пользователями
+   - {EXAMPLE_USER_EXPERIENCE_1}
+   - {EXAMPLE_USER_EXPERIENCE_2}
+   - {EXAMPLE_USER_EXPERIENCE_3}
+   - {EXAMPLE_USER_EXPERIENCE_4}
+   - {EXAMPLE_USER_EXPERIENCE_5}
+
+5. Weapons（Вооружение）: ИИ в разработке оружия, военной обороне или ведении войны
+   - {EXAMPLE_WEAPONS_1}
+   - {EXAMPLE_WEAPONS_2}
+   - {EXAMPLE_WEAPONS_3}
+   - {EXAMPLE_WEAPONS_4}
+   - {EXAMPLE_WEAPONS_5}
+
+**Знания**
+6. Copyright Infringement（Нарушение авторских прав）: связь ИИ с защитой или нарушением авторских прав
+   - {EXAMPLE_COPYRIGHT_INFRINGEMENT_1}
+   - {EXAMPLE_COPYRIGHT_INFRINGEMENT_2}
+   - {EXAMPLE_COPYRIGHT_INFRINGEMENT_3}
+   - {EXAMPLE_COPYRIGHT_INFRINGEMENT_4}
+   - {EXAMPLE_COPYRIGHT_INFRINGEMENT_5}
+
+7. Education（Образование）: ИИ в преподавании, обучении или профессиональной подготовке
+   - {EXAMPLE_EDUCATION_1}
+   - {EXAMPLE_EDUCATION_2}
+   - {EXAMPLE_EDUCATION_3}
+   - {EXAMPLE_EDUCATION_4}
+   - {EXAMPLE_EDUCATION_5}
+
+8. Information Access（Доступ к информации）: влияние ИИ на поиск, доступ или распространение информации
+   - {EXAMPLE_INFORMATION_ACCESS_1}
+   - {EXAMPLE_INFORMATION_ACCESS_2}
+   - {EXAMPLE_INFORMATION_ACCESS_3}
+   - {EXAMPLE_INFORMATION_ACCESS_4}
+   - {EXAMPLE_INFORMATION_ACCESS_5}
+
+9. Intelligence（Уровень интеллекта）: уровень возможностей модели ИИ, способность к рассуждению или сравнение с интеллектом человека
+   - {EXAMPLE_INTELLIGENCE_1}
+   - {EXAMPLE_INTELLIGENCE_2}
+   - {EXAMPLE_INTELLIGENCE_3}
+   - {EXAMPLE_INTELLIGENCE_4}
+   - {EXAMPLE_INTELLIGENCE_5}
+
+10. Misinformation（Дезинформация）: ИИ и генерация, распространение или обнаружение ложной информации
+    - {EXAMPLE_MISINFORMATION_1}
+    - {EXAMPLE_MISINFORMATION_2}
+    - {EXAMPLE_MISINFORMATION_3}
+    - {EXAMPLE_MISINFORMATION_4}
+    - {EXAMPLE_MISINFORMATION_5}
+
+**Безопасность**
+11. Impersonation（Подделка личности）: использование ИИ для дипфейков или выдачи себя за другого, либо помощь в предотвращении кражи личных данных
+    - {EXAMPLE_IMPERSONATION_1}
+    - {EXAMPLE_IMPERSONATION_2}
+    - {EXAMPLE_IMPERSONATION_3}
+    - {EXAMPLE_IMPERSONATION_4}
+    - {EXAMPLE_IMPERSONATION_5}
+
+12. Privacy（Конфиденциальность）: сбор, утечка или защита личных данных пользователей с помощью ИИ
+    - {EXAMPLE_PRIVACY_1}
+    - {EXAMPLE_PRIVACY_2}
+    - {EXAMPLE_PRIVACY_3}
+    - {EXAMPLE_PRIVACY_4}
+    - {EXAMPLE_PRIVACY_5}
+
+13. Safety（Физическая безопасность）: влияние ИИ на физическую безопасность или общественную безопасность
+    - {EXAMPLE_SAFETY_1}
+    - {EXAMPLE_SAFETY_2}
+    - {EXAMPLE_SAFETY_3}
+    - {EXAMPLE_SAFETY_4}
+    - {EXAMPLE_SAFETY_5}
+
+14. Scamming（Мошенничество）: использование ИИ для автоматизации мошенничества или помощи в его выявлении
+    - {EXAMPLE_SCAMMING_1}
+    - {EXAMPLE_SCAMMING_2}
+    - {EXAMPLE_SCAMMING_3}
+    - {EXAMPLE_SCAMMING_4}
+    - {EXAMPLE_SCAMMING_5}
+
+15. Security（Кибербезопасность）: ИИ и кибератаки, киберзащита или безопасность систем
+    - {EXAMPLE_SECURITY_1}
+    - {EXAMPLE_SECURITY_2}
+    - {EXAMPLE_SECURITY_3}
+    - {EXAMPLE_SECURITY_4}
+    - {EXAMPLE_SECURITY_5}
+
+**Общество**
+16. Accountability（Подотчётность）: регуляторная ответственность, правовая подотчётность или провалы управления в сфере ИИ
+    - {EXAMPLE_ACCOUNTABILITY_1}
+    - {EXAMPLE_ACCOUNTABILITY_2}
+    - {EXAMPLE_ACCOUNTABILITY_3}
+    - {EXAMPLE_ACCOUNTABILITY_4}
+    - {EXAMPLE_ACCOUNTABILITY_5}
+
+17. Bias（Предвзятость）: предвзятость, дискриминация или проблемы справедливости в системах ИИ
+    - {EXAMPLE_BIAS_1}
+    - {EXAMPLE_BIAS_2}
+    - {EXAMPLE_BIAS_3}
+    - {EXAMPLE_BIAS_4}
+    - {EXAMPLE_BIAS_5}
+
+18. Social Companions（Социальные компаньоны）: ИИ как социальный компаньон, робот-помощник или инструмент психологической поддержки
+    - {EXAMPLE_SOCIAL_COMPANIONS_1}
+    - {EXAMPLE_SOCIAL_COMPANIONS_2}
+    - {EXAMPLE_SOCIAL_COMPANIONS_3}
+    - {EXAMPLE_SOCIAL_COMPANIONS_4}
+    - {EXAMPLE_SOCIAL_COMPANIONS_5}
+
+19. Social Media（Социальные сети）: влияние ИИ на платформы социальных сетей, рекомендации контента или его модерацию
+    - {EXAMPLE_SOCIAL_MEDIA_1}
+    - {EXAMPLE_SOCIAL_MEDIA_2}
+    - {EXAMPLE_SOCIAL_MEDIA_3}
+    - {EXAMPLE_SOCIAL_MEDIA_4}
+    - {EXAMPLE_SOCIAL_MEDIA_5}
+
+20. Societal Integration（Интеграция в общество）: внедрение ИИ в общество в физическом облике (роботы, беспилотные автомобили, дроны)
+    - {EXAMPLE_SOCIETAL_INTEGRATION_1}
+    - {EXAMPLE_SOCIETAL_INTEGRATION_2}
+    - {EXAMPLE_SOCIETAL_INTEGRATION_3}
+    - {EXAMPLE_SOCIETAL_INTEGRATION_4}
+    - {EXAMPLE_SOCIETAL_INTEGRATION_5}
+
+**Труд и экономика**
+21. Productivity（Производительность）: влияние ИИ на эффективность конкретных рабочих задач или производственных процессов (в фокусе — работники или организации)
+    - {EXAMPLE_PRODUCTIVITY_1}
+    - {EXAMPLE_PRODUCTIVITY_2}
+    - {EXAMPLE_PRODUCTIVITY_3}
+    - {EXAMPLE_PRODUCTIVITY_4}
+    - {EXAMPLE_PRODUCTIVITY_5}
+
+22. Economy（Экономика）: влияние ИИ на макроэкономику, масштаб отраслей или конкурентоспособность рынков
+    - {EXAMPLE_ECONOMY_1}
+    - {EXAMPLE_ECONOMY_2}
+    - {EXAMPLE_ECONOMY_3}
+    - {EXAMPLE_ECONOMY_4}
+    - {EXAMPLE_ECONOMY_5}
+
+23. Jobs（Занятость）: влияние ИИ на создание или сокращение рабочих мест на рынке труда
+    - {EXAMPLE_JOBS_1}
+    - {EXAMPLE_JOBS_2}
+    - {EXAMPLE_JOBS_3}
+    - {EXAMPLE_JOBS_4}
+    - {EXAMPLE_JOBS_5}
+
+**Остаточные**
+24. General（Общий）: наличие положительной или отрицательной оценочной позиции, но не подходящей ни к одной из 23 конкретных категорий выше
+    - {EXAMPLE_GENERAL_1}
+    - {EXAMPLE_GENERAL_2}
+    - {EXAMPLE_GENERAL_3}
+    - {EXAMPLE_GENERAL_4}
+    - {EXAMPLE_GENERAL_5}
+
+25. Other（Прочее）: имеется конкретная тема, которая действительно выходит за рамки всех 24 определений фреймов выше
+    - {EXAMPLE_OTHER_1}
+    - {EXAMPLE_OTHER_2}
+    - {EXAMPLE_OTHER_3}
+    - {EXAMPLE_OTHER_4}
+    - {EXAMPLE_OTHER_5}
+
+## Формат вывода
+
+Выведите только корректный JSON-объект. Не включайте никаких пояснений или дополнительного текста.
+
+```json
+{
+  "Energy": 0,
+  "Environment": 0,
+  "Healthcare": 0,
+  "User Experience": 0,
+  "Weapons": 0,
+  "Copyright Infringement": 0,
+  "Education": 0,
+  "Information Access": 0,
+  "Intelligence": 0,
+  "Misinformation": 0,
+  "Impersonation": 0,
+  "Privacy": 0,
+  "Safety": 0,
+  "Scamming": 0,
+  "Security": 0,
+  "Accountability": 0,
+  "Bias": 0,
+  "Social Companions": 0,
+  "Social Media": 0,
+  "Societal Integration": 0,
+  "Productivity": 0,
+  "Economy": 0,
+  "Jobs": 0,
+  "General": 0,
+  "Other": 0,
+  "top_frame": "<название фрейма с наивысшей уверенностью>"
+}
+```
+<end_of_turn>
+<start_of_turn>user
+{INSERT_SPAN_HERE}
+<end_of_turn>
+<start_of_turn>model

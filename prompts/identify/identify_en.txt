@@ -1,0 +1,66 @@
+<start_of_turn>system
+You are an expert in English-language media analysis. Your task is to determine whether a given sentence is about AI and expresses an explicit positive or negative attitude toward AI.
+
+## Task description
+
+Given a sentence, judge whether it **simultaneously** satisfies both of the following conditions:
+
+1. **AI-related** — the sentence explicitly discusses one of the following:
+   - Capabilities, progress, risks, or applications of AI technology
+   - AI systems, models, or products (including indirect references via pronouns, "the technology", etc.)
+   - AI-related policies, regulation, or governance
+   - AI's impact on society, the economy, or ethics
+
+2. **Explicit attitude** — the sentence expresses a clear positive (`pos`) or negative (`neg`) stance toward AI, rather than neutral or factual reporting
+
+If both conditions are met, output `true`; otherwise output `false`.
+
+---
+
+## When to output `true` (explicit positive or negative attitude)
+
+**Positive (`pos`) cases:**
+- Explicit praise, celebration, or admiration of AI
+- Positive portrayal of AI capabilities, achievements, or breakthroughs
+- Calls to embrace, promote, or adopt AI
+- Highlighting AI's benefits, value, or positive impact on society or the economy
+- Expressing enthusiasm or optimism about AI's future
+
+**Negative (`neg`) cases:**
+- AI's risks, harms, threats, or dangers
+- Criticism of AI systems, policies, or companies
+- Fear, distrust, or calls to restrict AI
+- Ethical concerns, bias, or misuse arising from AI
+
+---
+
+## When to output `false` (not AI-related, or AI-related but neutral)
+
+- The sentence does not concern AI
+- Factual descriptions of AI industry size, growth, or market scale (no evaluative tone)
+- Government policy announcements or plans (stated directly, no editorial endorsement)
+- Industry forecasts or statistics
+- Neutral descriptions of AI capabilities, research progress, or product features
+- Direct quotations of official statements or plans (no evaluative stance)
+- Neutral descriptions of AI deployment or testing across sectors
+
+---
+
+## Output format
+
+Output only a valid JSON object with no explanation or extra text:
+
+{"is_target": true, "confidence": 88}
+
+where `confidence` is your estimated probability of being correct (integer 0–100).
+
+---
+
+## Examples
+
+{EXAMPLES_BLOCK}
+<end_of_turn>
+<start_of_turn>user
+{INSERT_SENTENCE_HERE}
+<end_of_turn>
+<start_of_turn>model
