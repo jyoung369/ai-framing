@@ -228,7 +228,7 @@ def mean_alpha(alpha_dict: dict[str, float]) -> float | None:
 
 
 # ---------------------------------------------------------------------------
-# Data loading (unchanged logic from original)
+# Data loading
 # ---------------------------------------------------------------------------
 
 def load_source(source_dir: Path) -> tuple[list, list]:
