@@ -7,15 +7,13 @@ import statistics as stat
 from pathlib import Path
 from collections import defaultdict
 
-# TODO: Cite https://pypi.org/project/krippendorff/ for the implementation in the paper
-
 # ---------------------------------------------------------------------------
-# Constants – populate before running
+# Constants
 # ---------------------------------------------------------------------------
 all_frames = ['accountability', 'bias', 'copyright', 'economy', 'energy', 'environment', 'education', 'healthcare', 'impersonation', 'info', 'intelligence', 'jobs', 'misinformation', 'privacy', 'productivity', 'companions', 'safety', 'scamming', 'security', 'media', 'integration', 'user', 'weapons', 'general', 'other']
 
 # ---------------------------------------------------------------------------
-# Core helpers (unchanged from original)
+# Core helpers
 # ---------------------------------------------------------------------------
 
 def tokenize_sentences(text: str, language: str) -> list[tuple[str, int, int]]:
