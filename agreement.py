@@ -7,7 +7,7 @@ import statistics as stat
 from pathlib import Path
 from collections import defaultdict
 
-# This file calculates inter-annotator agreement between all files
+# This file calculates inter-annotator agreement across all languages
 # ---------------------------------------------------------------------------
 # Constants
 # ---------------------------------------------------------------------------
