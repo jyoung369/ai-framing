@@ -115,7 +115,7 @@ def eval_fc(pred_path: Path, lang: str) -> dict:
     with open(pred_path, encoding="utf-8") as f:
         for line in f:
             rec      = json.loads(line)
-            gt_entry = gt.get((rec.get("source", ""), norm(rec.get("span_text", ""))))
+            gt_entry = gt.get((rec.get("source", ""), norm(rec.get("sentence_text", ""))))
             if gt_entry is None:
                 continue
             pred   = rec.get("predicted_top_frame") or "none"
@@ -137,7 +137,7 @@ def eval_sc(pred_path: Path, lang: str) -> dict:
     with open(pred_path, encoding="utf-8") as f:
         for line in f:
             rec      = json.loads(line)
-            gt_entry = gt.get((rec.get("source", ""), norm(rec.get("span_text", ""))))
+            gt_entry = gt.get((rec.get("source", ""), norm(rec.get("sentence_text", ""))))
             if gt_entry is None:
                 continue
             pred   = rec.get("predicted_sentiment") or "none"

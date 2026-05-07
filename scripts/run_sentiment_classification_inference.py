@@ -189,7 +189,7 @@ if __name__ == "__main__":
     prompts = []
 
     for rec in records:
-        span = rec["span_text"]
+        span = rec["sentence_text"]
         if use_context:
             para_text = paragraphs.get(rec.get("paragraph_id", ""), "")
             if para_text:
@@ -274,7 +274,7 @@ if __name__ == "__main__":
                 "id":                   rec["id"],
                 "source":               rec["source"],
                 "article_id":           rec["article_id"],
-                "span_text":            rec["span_text"],
+                "sentence_text":         rec["sentence_text"],
                 "expected_output":      rec["expected_output"],
                 "raw_output":           raw_text,
                 "parsed_output":        parsed,

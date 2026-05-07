@@ -52,7 +52,7 @@ def _collect_by_sentiment(pool: dict) -> dict:
         for entry in entries:
             s = entry.get("sentiment")
             if s in by_sent:
-                by_sent[s].append(entry["span_text"])
+                by_sent[s].append(entry["sentence_text"])
     return by_sent
 
 

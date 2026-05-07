@@ -5,7 +5,7 @@ Template format: {EXAMPLE_{SLUG}_{N}} placeholders are embedded directly
 under each frame's definition (N = 1..n_per_frame).
 
 Pool format: {lang}_frame_pool_ha.json
-  {frame_name: [{"span_text": "...", "output": {...}, "sentiment": "..."}, ...]}
+  {frame_name: [{"sentence_text": "...", "output": {...}, "sentiment": "..."}, ...]}
 
 The builder samples n_per_frame sentences per frame, fills every placeholder,
 and replaces any remaining unfilled slots (frames with < n entries in the pool)
@@ -88,7 +88,7 @@ def _fill_examples(tmpl: str, pool: dict, n_per_frame: int, rng: random.Random) 
         for i in range(1, n_per_frame + 1):
             ph = f"{{EXAMPLE_{slug}_{i}}}"
             if i <= len(sampled):
-                replacement = sampled[i - 1]["span_text"].strip()
+                replacement = sampled[i - 1]["sentence_text"].strip()
             else:
                 # Remove the entire bullet line for this placeholder
                 tmpl = re.sub(r'\n   - \{EXAMPLE_' + slug + r'_' + str(i) + r'\}', '', tmpl)
