@@ -10,7 +10,7 @@ The annotated dataset is hosted separately on Hugging Face: [AnonymousAccount202
 ```
 submission/
 ├── test_data/                       # Model-ready test sets
-│   ├── {en,ru,zh}_frame_test_ha.jsonl   # FC and SC test spans
+│   ├── {en,ru,zh}_frame_test_ha.jsonl   # FC and SC test sentences
 │   ├── {en,ru,zh}_identify_test.jsonl   # Identify test sentences
 │   ├── {en,ru,zh}_frame_pool_ha.json    # Few-shot example pool (FC & SC)
 │   └── {en,ru,zh}_identify_pool.json   # Few-shot example pool (Identify)
